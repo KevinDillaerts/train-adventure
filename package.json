@@ -1,0 +1,23 @@
+{
+  "name": "train-adventure",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "parcel serve ./src/index.html --open 'google chrome'",
+    "build": "npm run clean && parcel build ./src/index.html --dist-dir ./out --no-source-maps",
+    "clean": "rm -rf ./.parcel-cache ./dist ./out",
+    "serve": "live-server ./out",
+    "deploy": "surge ./out --domain https://train-adventure.surge.sh"
+  },
+  "keywords": [],
+  "author": "Kevin Dillaerts",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.0.1"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.6.2",
+    "axios": "^0.24.0",
+    "redux-logger": "^3.0.6"
+  }
+}
