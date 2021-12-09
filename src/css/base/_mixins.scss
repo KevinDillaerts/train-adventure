@@ -1,0 +1,33 @@
+@mixin make-col($cols, $gap) {
+  display: flex;
+  flex-wrap: wrap;
+
+  > *:nth-child(1n + 0) {
+    margin: 0 $gap $gap 0;
+    width: calc((100% - #{($cols - 1) * $gap}) / #{$cols});
+  }
+
+  > *:nth-child(#{$cols}n + 0) {
+    margin-right: 0;
+  }
+}
+
+@mixin flex($direction: row, $justify: center, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+%responsive {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+// Use % placeholder selector like this: @extend %image;
+
+@mixin grid($gap, $min-width) {
+  display: grid;
+  gap: $gap;
+  grid-template-columns: repeat(auto-fit, minmax($min-width, 1fr));
+}
