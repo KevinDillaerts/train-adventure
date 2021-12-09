@@ -9,14 +9,16 @@ export default class Loader {
     const { display } = store.getState().trainSlice;
     if (display === "loading") {
       this.holder.innerHTML = `
+      <div class="loading">
         <lottie-player
         src="https://assets2.lottiefiles.com/packages/lf20_zizREI.json"
         background="transparent"
         speed="1"
-        style="width: 300px; height: 300px"
+        style="width: 100%; height: auto"
         loop
         autoplay
-        ></lottie-player>`;
+        ></lottie-player>
+        </div>`;
     }
   }
 }

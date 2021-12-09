@@ -10,10 +10,9 @@ export default class Input {
   }
   init() {
     this.holder.innerHTML = `
-    <h2>Where would you like to start?</h2>
-    <input type="text" id="searchInput" autocomplete="off">
-    <ul id="searchResults"></ul>
-    `;
+    <h2>Kies jouw start-station</h2>
+    <input id="searchInput" autocomplete="off">
+    <ul id="searchResults"></ul>`;
     this.list = document.querySelector("#searchResults");
     return document.querySelector("#searchInput");
   }
@@ -25,6 +24,8 @@ export default class Input {
         .filter((station) => station.name.match(regex))
         .map((station) => `<li data-id=${station.id}>${station.name}</li>`)
         .join("");
+    } else {
+      this.list.innerHTML = "";
     }
   }
   setEvents() {

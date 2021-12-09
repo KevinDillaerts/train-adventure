@@ -1,5 +1,7 @@
+import "../css/style.scss";
 import store from "./data";
 import { getAllStations } from "./data/trains";
+import Startscreen from "./components/Startscreen";
 import Input from "./components/Input";
 import Loader from "./components/Loader";
 import Liveboard from "./components/Liveboard";
@@ -7,7 +9,7 @@ import Stops from "./components/Stops";
 
 const app = document.getElementById("app");
 
-const initialize = async () => {
+export const initialize = async () => {
   await store.dispatch(getAllStations());
   new Input(app);
   new Loader(app);
@@ -15,4 +17,4 @@ const initialize = async () => {
   new Stops(app);
 };
 
-initialize();
+new Startscreen(app);
