@@ -166,8 +166,6 @@ button {
 }
 
 .loading {
-  height: 100%;
-  width: 100%;
   margin: auto;
 }
 
@@ -179,8 +177,7 @@ button {
 
 @media screen and(min-width: 750px) {
   #startScreen {
-    height: 100vh;
-    justify-content: center;
+    margin: auto 0;
     padding: 0 $spacing-xxl;
   }
 }

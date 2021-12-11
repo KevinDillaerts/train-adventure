@@ -11,14 +11,14 @@ export default class Loader {
       this.holder.innerHTML = `
       <div class="loading">
         <lottie-player
-        src="https://assets2.lottiefiles.com/packages/lf20_zizREI.json"
+        src="https://assets3.lottiefiles.com/packages/lf20_fhBdev.json"
         background="transparent"
         speed="1"
-        style="width: 100%; height: auto"
+        style="width: 300px; height: auto"
         loop
         autoplay
         ></lottie-player>
-        </div>`;
+      </div>`;
     }
   }
 }
