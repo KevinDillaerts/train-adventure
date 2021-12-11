@@ -4,19 +4,22 @@ import { getLiveboard } from "../data/trains";
 export default class Input {
   constructor(holder) {
     this.holder = holder;
-    this.ref = this.init();
+    this.ref;
     this.list;
-    this.setEvents();
+    store.subscribe(this.render.bind(this));
   }
-  init() {
-    this.holder.innerHTML = `
-    <h2>Kies jouw start-station</h2>
-    <input id="searchInput" autocomplete="off">
-    <ul id="searchResults"></ul>`;
-    this.list = document.querySelector("#searchResults");
-    return document.querySelector("#searchInput");
+  render() {
+    if (store.getState().trainSlice.display === "startSearch") {
+      this.holder.innerHTML = `
+      <h2>Kies jouw start-station</h2>
+      <input id="searchInput" autocomplete="off">
+      <ul id="searchResults"></ul>`;
+      this.list = document.querySelector("#searchResults");
+      this.ref = document.querySelector("#searchInput");
+      this.setEvents();
+    }
   }
-  render(value) {
+  showList(value) {
     if (value.length > 1) {
       const { allStations } = store.getState().trainSlice;
       const regex = new RegExp(value, "i");
@@ -30,7 +33,7 @@ export default class Input {
   }
   setEvents() {
     this.ref.onkeyup = () => {
-      this.render(this.ref.value);
+      this.showList(this.ref.value);
     };
     this.list.onclick = (e) => {
       if (e.target.dataset.id) store.dispatch(getLiveboard(e.target.dataset.id));

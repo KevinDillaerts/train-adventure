@@ -1,8 +1,8 @@
 import Toastify from "toastify-js";
 
-export const toastError = () => {
+export const toastError = (text) => {
   Toastify({
-    text: "Oeps, we konden geen data vinden. Probeer opnieuw of kies een ander station.",
+    text: text,
     duration: 3000,
     newWindow: true,
     close: true,

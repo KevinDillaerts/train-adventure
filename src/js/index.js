@@ -11,11 +11,11 @@ import Stops from "./components/Stops";
 const app = document.getElementById("app");
 
 export const initialize = async () => {
-  await store.dispatch(getAllStations());
   new Input(app);
   new Loader(app);
   new Liveboard(app);
   new Stops(app);
+  await store.dispatch(getAllStations());
 };
 
 new Startscreen(app);

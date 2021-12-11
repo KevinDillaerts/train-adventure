@@ -13,7 +13,7 @@ const initialState = {
 export const getAllStations = createAsyncThunk("trains/getAllStations", async () => {
   const {
     data: { station },
-  } = await axios("https://api.irail.be/stations/?format=json&lang=nl");
+  } = await axios("https://api.irail.be/stations/5?format=json&lang=nl");
   return station;
 });
 
@@ -52,8 +52,10 @@ const trainSlice = createSlice({
     },
     [getAllStations.rejected]: (state) => {
       state.display = null;
-      toastError();
-      location.reload();
+      toastError("Er liep iets mis met het laden, probeer opnieuw");
+      setTimeout(() => {
+        location.reload();
+      }, 3000);
     },
     [getAllStations.fulfilled]: (state, action) => {
       state.display = "startSearch";
@@ -63,7 +65,7 @@ const trainSlice = createSlice({
       state.display = "loading";
     },
     [getLiveboard.rejected]: (state) => {
-      toastError();
+      toastError("Oeps, we konden geen data vinden. Probeer opnieuw of kies een ander station.");
       state.display = "startSearch";
     },
     [getLiveboard.fulfilled]: (state, action) => {
@@ -74,8 +76,8 @@ const trainSlice = createSlice({
       state.display = "loading";
     },
     [getStops.rejected]: (state) => {
-      toastError();
-      state.display = "showLiveBoard";
+      toastError("Oeps, we konden geen data vinden. Probeer opnieuw of kies een ander station.");
+      state.display = "showLiveboard";
     },
     [getStops.fulfilled]: (state, action) => {
       state.display = "showStops";
