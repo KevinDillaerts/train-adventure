@@ -76,7 +76,7 @@ const trainSlice = createSlice({
       state.display = "loading";
     },
     [getStops.rejected]: (state) => {
-      toastError("Oeps, we konden geen data vinden. Probeer opnieuw of kies een ander station.");
+      toastError("Oeps, we konden geen data vinden. Probeer opnieuw of kies een andere richting.");
       state.display = "showLiveboard";
     },
     [getStops.fulfilled]: (state, action) => {
