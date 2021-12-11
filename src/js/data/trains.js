@@ -13,7 +13,7 @@ const initialState = {
 export const getAllStations = createAsyncThunk("trains/getAllStations", async () => {
   const {
     data: { station },
-  } = await axios("https://api.irail.be/stations/5?format=json&lang=nl");
+  } = await axios("https://api.irail.be/stations/?format=json&lang=nl");
   return station;
 });
 
