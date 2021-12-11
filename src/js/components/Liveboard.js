@@ -24,7 +24,7 @@ export default class Liveboard {
   }
   setEvents() {
     this.list.onclick = (e) => {
-      store.dispatch(getStops(e.target.dataset.id));
+      if (e.target.dataset.id) store.dispatch(getStops(e.target.dataset.id));
     };
   }
 }

@@ -23,7 +23,7 @@ export default class Stops {
   }
   setEvents() {
     this.list.onclick = (e) => {
-      store.dispatch(getLiveboard(e.target.dataset.id));
+      if (e.target.dataset.id) store.dispatch(getLiveboard(e.target.dataset.id));
     };
   }
 }
