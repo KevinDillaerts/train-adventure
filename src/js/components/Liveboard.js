@@ -14,7 +14,7 @@ export default class Liveboard {
     const { liveboard, display } = store.getState().trainSlice;
     if (display === "showLiveboard") {
       this.holder.innerHTML = `
-      <h2>Pick a direction</h2>
+      <h2>Kies een trein uit het vertrekbord</h2>
       <ul id="liveboard">
       ${liveboard.map((train) => `<li data-id=${train.vehicle}>${train.station}</li>`).join("")}
       </ul>`;

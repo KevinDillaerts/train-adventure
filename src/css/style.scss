@@ -19,7 +19,7 @@ body {
   padding: $spacing-xxl $spacing-xl;
   background-color: $color-bg;
   min-height: 100vh;
-  max-width: 65rem;
+  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -87,7 +87,6 @@ button {
 }
 
 .explanation {
-  list-style: circle;
   margin-left: $spacing-lg;
   font-size: 1.2rem;
   &__item {
@@ -106,6 +105,7 @@ button {
   border-radius: $border-radius;
   outline: none;
   font-family: $font-stations;
+  font-size: 1.2rem;
   padding: $spacing-sm;
   width: 15rem;
 }
@@ -116,22 +116,8 @@ button {
   padding-left: $spacing-sm;
   transition: height 700ms;
   & li {
-    display: block;
-    width: fit-content;
     margin-bottom: $spacing-xl;
-    &::after {
-      position: absolute;
-      left: 0;
-      bottom: calc($spacing-me * -1);
-      content: "";
-      width: 0%;
-      height: $spacing-sm;
-      background-color: $color-accent;
-      transition: all 300ms;
-    }
-    &:hover::after {
-      width: 100%;
-    }
+    @include underline;
   }
 }
 
@@ -139,7 +125,44 @@ button {
   width: 100%;
   display: grid;
   grid-template-columns: 1fr;
+  gap: 1em;
   text-align: center;
+  vertical-align: middle;
+  & li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $color-accent;
+    padding: $spacing-me;
+    border-radius: $border-radius;
+    vertical-align: middle;
+    &:hover,
+    &:focus {
+      outline: 2px solid $color-primary;
+      outline-offset: calc(-1 * $spacing-sm);
+    }
+  }
+}
+
+#stops {
+  margin-top: $spacing-xl;
+  & li {
+    margin-bottom: $spacing-xxl;
+    @include underline;
+    &::before {
+      content: "";
+      position: absolute;
+      height: 1em;
+      width: 1em;
+      border-radius: 50%;
+      left: -2em;
+      background-color: transparent;
+      border: 2px solid $color-primary;
+    }
+    &:hover::before {
+      background-color: $color-accent;
+    }
+  }
 }
 
 .loading {
@@ -164,6 +187,6 @@ button {
 
 @media screen and(min-width: 1100px) {
   #liveboard {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }

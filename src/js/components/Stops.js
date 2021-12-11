@@ -13,7 +13,7 @@ export default class Stops {
     const { stops, display } = store.getState().trainSlice;
     if (display === "showStops") {
       this.holder.innerHTML = `
-        <h2>Where would you like exit the train?</h2>
+        <h2>Waar wil je afstappen?</h2>
         <ul id="stops">
         ${stops.map((stop) => `<li data-id=${stop.stationinfo.id}>${stop.station}</li>`).join("")}
         </ul>`;

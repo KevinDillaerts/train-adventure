@@ -1,3 +1,5 @@
+@use "./variables" as *;
+
 @mixin make-col($cols, $gap) {
   display: flex;
   flex-wrap: wrap;
@@ -30,4 +32,23 @@
   display: grid;
   gap: $gap;
   grid-template-columns: repeat(auto-fit, minmax($min-width, 1fr));
+}
+
+@mixin underline {
+  width: fit-content;
+  &::after {
+    position: absolute;
+    left: 0;
+    bottom: calc($spacing-me * -1);
+    content: "";
+    width: 0%;
+    height: $spacing-sm;
+    background-color: $color-accent;
+    transition: all 300ms;
+  }
+  &:hover::after,
+  &:focus::after,
+  &:active::after {
+    width: 100%;
+  }
 }

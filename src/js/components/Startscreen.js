@@ -16,7 +16,7 @@ export default class Startscreen {
         <li class="explanation__item">Je krijgt dan het vertrekbord* te zien met de volgende treinen en hun eindstations</li>
         <li class="explanation__item">Neem een trein naar keuze, en eens je op de trein zit, zie je alle tussenstations</li>
         <li class="explanation__item">Stap uit in een station naar keuze, waar je dan weer een nieuw vertrekbord krijgt</li>
-        <li class="explanation__item">Herhaal naar hartlust deze stappen en ontdek waar je zoal terecht komt met de trein</li>
+        <li class="explanation__item">Herhaal naar hartelust deze stappen en ontdek waar je zoal terecht komt met de trein</li>
         </ul>
         <p>*het is mogelijk dat we voor een bepaald station geen vertrekbord kunnen tonen. Dan krijg je hier een melding van en kan je een nieuwe keuze maken.</p>
         <button id="startButton">START</button>
