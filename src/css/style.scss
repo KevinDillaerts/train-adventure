@@ -146,6 +146,16 @@ button {
 
 #stops {
   margin-top: $spacing-xl;
+  position: relative;
+  &::after {
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 3px;
+    background-color: $color-accent;
+    top: calc(-2 * $spacing-lg);
+    left: -1.45em;
+  }
   & li {
     margin-bottom: $spacing-xxl;
     @include underline;
@@ -156,8 +166,9 @@ button {
       width: 1em;
       border-radius: 50%;
       left: -2em;
-      background-color: transparent;
+      background-color: $color-bg;
       border: 2px solid $color-primary;
+      z-index: 2;
     }
     &:hover::before {
       background-color: $color-accent;
@@ -179,11 +190,5 @@ button {
   #startScreen {
     margin: auto 0;
     padding: 0 $spacing-xxl;
-  }
-}
-
-@media screen and(min-width: 1100px) {
-  #liveboard {
-    grid-template-columns: repeat(2, 1fr);
   }
 }

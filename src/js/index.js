@@ -1,4 +1,5 @@
 import "../css/style.scss";
+import "toastify-js/src/toastify.css";
 import store from "./data";
 import { getAllStations } from "./data/trains";
 import Startscreen from "./components/Startscreen";

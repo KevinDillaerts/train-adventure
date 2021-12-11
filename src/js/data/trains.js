@@ -1,11 +1,10 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 const axios = require("axios");
 import store from "../data";
+import { toastError } from "../components/toastError";
 
 const initialState = {
-  error: false,
   display: null,
-  current: null,
   liveboard: [],
   allStations: [],
   stops: [],
@@ -23,7 +22,9 @@ export const getLiveboard = createAsyncThunk("trains/getLiveboard", async (id) =
     data: {
       departures: { departure },
     },
-  } = await axios(`https://api.irail.be/liveboard/?id=${id}&lang=nl&format=json&alerts=false`);
+  } = await axios(
+    `https://api.irail.be/liveboard/?id=${id}&time=0930&lang=nl&format=json&alerts=false`
+  );
   const uniqueDepartures = [
     ...new Map(departure.map((train) => [train["station"], train])).values(),
   ];
@@ -48,7 +49,11 @@ const trainSlice = createSlice({
   extraReducers: {
     [getAllStations.pending]: (state) => {
       state.display = "loading";
-      state.error = false;
+    },
+    [getAllStations.rejected]: (state) => {
+      state.display = null;
+      toastError();
+      location.reload();
     },
     [getAllStations.fulfilled]: (state, action) => {
       state.display = "startSearch";
@@ -56,16 +61,21 @@ const trainSlice = createSlice({
     },
     [getLiveboard.pending]: (state) => {
       state.display = "loading";
-      state.error = false;
+    },
+    [getLiveboard.rejected]: (state) => {
+      toastError();
+      state.display = "startSearch";
     },
     [getLiveboard.fulfilled]: (state, action) => {
-      state.current = action.payload.id;
       state.display = "showLiveboard";
       state.liveboard = action.payload.uniqueDepartures;
     },
     [getStops.pending]: (state) => {
       state.display = "loading";
-      state.error = false;
+    },
+    [getStops.rejected]: (state) => {
+      toastError();
+      state.display = "showLiveBoard";
     },
     [getStops.fulfilled]: (state, action) => {
       state.display = "showStops";

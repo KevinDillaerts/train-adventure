@@ -19,6 +19,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.2",
     "axios": "^0.24.0",
-    "redux-logger": "^3.0.6"
+    "redux-logger": "^3.0.6",
+    "toastify-js": "^1.11.2"
   }
 }
