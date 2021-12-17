@@ -7,6 +7,7 @@ import Input from "./components/Input";
 import Loader from "./components/Loader";
 import Liveboard from "./components/Liveboard";
 import Stops from "./components/Stops";
+import Ribbon from "./components/Ribbon";
 
 const app = document.getElementById("app");
 
@@ -19,3 +20,4 @@ export const initialize = async () => {
 };
 
 new Startscreen(app);
+new Ribbon();

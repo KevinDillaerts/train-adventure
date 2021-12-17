@@ -12,6 +12,19 @@ body {
   background-color: $color-primary;
 }
 
+.github-corner {
+  & svg {
+    width: 4.5rem;
+    height: 4.5rem;
+    fill: $color-accent;
+    color: $color-font-white;
+    position: absolute;
+    top: 0;
+    border: 0;
+    right: 0;
+  }
+}
+
 #app {
   display: flex;
   flex-direction: column;
@@ -190,5 +203,11 @@ button {
   #startScreen {
     margin: auto 0;
     padding: 0 $spacing-xxl;
+  }
+  .github-corner {
+    & svg {
+      width: 8rem;
+      height: 8rem;
+    }
   }
 }
