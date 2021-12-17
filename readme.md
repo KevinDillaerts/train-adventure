@@ -11,7 +11,7 @@ This app uses the live API from the Belgian railways to show you where you could
 This is how you use it:
 
 1. At the start, you are greeted by a start screen, which again explains these steps (Dutch only).
-   ![start screen]("/images/startscreen.png)
+   ![start screen]("./images/startscreen.png)
 2. As soon as you click start, you are taken to a page where you can choose your starting station.
 3. After selecting your starting station, the app will show you the 'departures' board.
 4. This board shows you all trains leaving from your current station by their 'terminus'.
